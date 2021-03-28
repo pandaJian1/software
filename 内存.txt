@@ -1,0 +1,20 @@
+Runtime.getRuntime().maxMemory() / 1024 / 1024 ；堆的最大可扩展大小
+Runtime.getRuntime().freeMemory() / 1024 / 1024；堆得剩余大小
+Runtime.getRuntime().totalMemory() / 1024 / 1024；堆的当前总大小
+单位M
+
+参数
+-Xms初始堆大小。只要启动，就占用的堆大小，默认是内存的1/64
+-Xmx最大堆大小。默认是内存的1/4
+-Xmn新生区堆大小
+-XX:+PrintGCDetails输出详细的GC处理日志
+
+jvm参数设置成最大堆内存100M，当前堆内存10M：-Xmx100m -Xms10m -XX:+PrintGCDetails
+
+idea分析dump文件
+-Xmx50m -Xms10m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=D:\tmp
+
+参数调优的命令行：
+		查看java应用程序的进程：jps -l
+		查看某个java应用的具体参数：jinfo -flags 进程号
+		查看某个java应用的GC具体信息：jstat -gc 进程号
